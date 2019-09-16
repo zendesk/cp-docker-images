@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM debian:jessie
+FROM gcr.io/docker-images-180022/base/ubuntu:16.04
 
 ARG COMMIT_ID=unknown
 LABEL io.confluent.docker.git.id=$COMMIT_ID
@@ -30,7 +30,7 @@ MAINTAINER partner-support@confluent.io
 LABEL io.confluent.docker=true
 
 # Python
-ENV PYTHON_VERSION="2.7.9-1"
+ENV PYTHON_VERSION="2.7.11-1"
 ENV PYTHON_PIP_VERSION="8.1.2"
 
 # Confluent
@@ -63,18 +63,18 @@ ENV ZULU_OPENJDK_VERSION="8=8.30.0.1"
 ENV LANG="C.UTF-8"
 
 RUN echo "===> Updating debian ....." \
-    # TODO debian jessie has been deprecated and is only ex
-    && echo "deb http://archive.debian.org/debian/ jessie main" > /etc/apt/sources.list \
-    && echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list \
     && apt-get -qq update \
     \
     && echo "===> Installing curl wget netcat python...." \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                apt-utils \
                 apt-transport-https \
                 curl \
                 git \
                 wget \
                 netcat \
+                libpython-stdlib=${PYTHON_VERSION} \
+                python-minimal=${PYTHON_VERSION} \
                 python=${PYTHON_VERSION} \
     && echo "===> Installing python packages ..."  \
     && curl -fSL "https://bootstrap.pypa.io/get-pip.py" | python \
