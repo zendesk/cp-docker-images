@@ -15,7 +15,7 @@
 
 # Builds a docker image for Replicator
 
-FROM confluentinc/cp-kafka-connect-base
+FROM zendesk/cp-kafka-connect-base
 
 MAINTAINER partner-support@confluent.io
 LABEL io.confluent.docker=true

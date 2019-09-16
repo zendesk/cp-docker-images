@@ -12,7 +12,7 @@ CONFLUENT_VERSION ?= ${CONFLUENT_MAJOR_VERSION}.${CONFLUENT_MINOR_VERSION}.${CON
 
 KAFKA_VERSION ?= 2.1.0
 
-COMPONENTS := base zookeeper kafka kafka-rest schema-registry kafka-connect-base kafka-connect enterprise-control-center kafkacat enterprise-replicator enterprise-replicator-executable enterprise-kafka kafka-mqtt
+COMPONENTS := base kafka schema-registry kafka-connect-base kafka-connect
 COMMIT_ID := $(shell git rev-parse --short HEAD)
 MYSQL_DRIVER_VERSION := 5.1.39
 
@@ -22,7 +22,7 @@ CONFLUENT_PACKAGES_REPO ?= http://packages.confluent.io
 # Set to false for public releases
 ALLOW_UNSIGNED ?= false
 
-REPOSITORY ?= confluentinc
+REPOSITORY ?= zendesk
 
 # Platform-specific version labels for SNAPSHOT packaging. Not necessary when building from public releases.
 CONFLUENT_MVN_LABEL ?=

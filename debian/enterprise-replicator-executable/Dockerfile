@@ -15,7 +15,7 @@
 
 # Builds a docker image for Replicator
 
-FROM confluentinc/cp-enterprise-replicator
+FROM zendesk/cp-enterprise-replicator
 
 MAINTAINER partner-support@confluent.io
 LABEL io.confluent.docker=true

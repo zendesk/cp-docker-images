@@ -15,7 +15,7 @@
 
 # Builds a docker image for Kafka Connect
 
-FROM confluentinc/cp-kafka
+FROM zendesk/cp-kafka
 
 MAINTAINER partner-support@confluent.io
 LABEL io.confluent.docker=true
